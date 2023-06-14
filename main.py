@@ -16,6 +16,13 @@ fondo = pygame.image.load("Recursos\Fondos\campsite_by_dominique_van_velsen_deob
 fondo = pygame.transform.scale(fondo, TAMAÑO_PANTALLA)
 pygame.init()
 
+#PERSONAJE
+
+diccionario_animaciones = {}
+diccionario_animaciones["quieto"] = personaje_quieto
+diccionario_animaciones["salta"] = personaje_salta
+diccionario_animaciones["camina_derecha"] = personaje_camina
+diccionario_animaciones["camina-izquierda"] = personaje_camina_izquierda
 
 
 while True:
