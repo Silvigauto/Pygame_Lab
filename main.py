@@ -33,9 +33,9 @@ diccionario_animaciones = {}
 diccionario_animaciones["quieto"] = personaje_quieto
 diccionario_animaciones["salta"] = personaje_salta
 diccionario_animaciones["camina_derecha"] = personaje_camina
-diccionario_animaciones["camina-izquierda"] = personaje_camina_izquierda
+diccionario_animaciones["camina_izquierda"] = personaje_camina_izquierda
 
-mi_personaje = Personaje(tamaño, diccionario_animaciones, posicion_incial, 10)
+mi_personaje = Personaje(tamaño, diccionario_animaciones, posicion_incial, 5)
 
 
 while True:
@@ -45,6 +45,16 @@ while True:
                 pygame.quit()
                 sys.exit(0)
     
-
+    keys = pygame.key.get_pressed()
+    #esto no va a dar siempre true ?
+    if keys[pygame.K_RIGHT]:
+        mi_personaje.que_hace = "derecha"
+    elif keys[pygame.K_LEFT]:
+        mi_personaje.que_hace = "izquierda"
+    elif keys[pygame.K_UP]:
+        mi_personaje.que_hace = "salta"
+    else:
+        mi_personaje.que_hace = "quieto"
+    
     actualizar_pantalla(PANTALLA, mi_personaje, fondo)
     pygame.display.update()

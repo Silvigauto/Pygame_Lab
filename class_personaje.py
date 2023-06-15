@@ -36,12 +36,22 @@ class Personaje:
         self.contador_pasos += 1
         
 
-    def mover(self):
+    def mover(self, velocidad):
         for lado in self.lados:
-            self.lados[lado].x += self.velocidad
+            self.lados[lado].x += velocidad
     
     def update(self, pantalla):
-        self.animar(pantalla, "quieto")
+        match self.que_hace:
+            case "derecha":
+                self.animar(pantalla, "camina_derecha")
+                self.mover(self.velocidad)
+            case "izquierda":
+                self.animar(pantalla, "camina_izquierda")
+                self.mover(self.velocidad*-1)
+            case "salta":
+                pass
+            case "quieto":
+                self.animar(pantalla, "quieto")
 
     def aplicar_gravedad(self):
         pass
