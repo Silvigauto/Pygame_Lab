@@ -15,15 +15,32 @@ def girar_imagenes(lista, flip_x, flip_y):
 def obtener_rectangulos(principal)->dict:
     diccionario = {}
     diccionario["main"] = principal
-    diccionario["bottom"] = pygame.Rect(principal.left, principal.bottom-6, principal.width, 6)
+    #la suma del top del bottom tiene que se mayor a la velocidad de caida para que no este la probabilidad
+    #de que se caiga el personaje
+    diccionario["bottom"] = pygame.Rect(principal.left, principal.bottom-10, principal.width, 10)
     diccionario["right"] = pygame.Rect(principal.right-2, principal.top,2, principal.height)
     diccionario["left"] = pygame.Rect(principal.left, principal.top, 2, principal.height)
-    diccionario["top"] = pygame.Rect(principal.left, principal.top, principal.width, 6)
+    diccionario["top"] = pygame.Rect(principal.left, principal.top, principal.width, 10)
     return diccionario
 
 
 personaje_quieto = [pygame.image.load("Recursos/aladin/quieto/2.png"),
-                    pygame.image.load("Recursos/aladin/quieto/3.png")]
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/2.png"),
+                    pygame.image.load("Recursos/aladin/quieto/3.png"),
+                    ]
 
 
 personaje_camina = [pygame.image.load("Recursos/aladin/camina/4.png"),
