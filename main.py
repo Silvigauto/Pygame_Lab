@@ -1,7 +1,13 @@
 import pygame, sys
 from configuraciones import *
 from pygame.locals import *
+from class_personaje import *
 
+
+def actualizar_pantalla(pantalla, un_personaje:Personaje, fondo):
+    pantalla.blit(fondo, (0,0))
+    #plataformas
+    un_personaje.update(pantalla)
 
 #pantalla
 WIDTH = 1200
@@ -17,12 +23,19 @@ fondo = pygame.transform.scale(fondo, TAMAÑO_PANTALLA)
 pygame.init()
 
 #PERSONAJE
+#eje x, y
+posicion_incial = (50, 450)
+tamaño = (75,85)
+
+
 
 diccionario_animaciones = {}
 diccionario_animaciones["quieto"] = personaje_quieto
 diccionario_animaciones["salta"] = personaje_salta
 diccionario_animaciones["camina_derecha"] = personaje_camina
 diccionario_animaciones["camina-izquierda"] = personaje_camina_izquierda
+
+mi_personaje = Personaje(tamaño, diccionario_animaciones, posicion_incial, 10)
 
 
 while True:
@@ -33,5 +46,5 @@ while True:
                 sys.exit(0)
     
 
-    PANTALLA.blit(fondo, (0,0))
+    actualizar_pantalla(PANTALLA, mi_personaje, fondo)
     pygame.display.update()
